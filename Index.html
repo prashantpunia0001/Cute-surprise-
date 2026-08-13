@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 🤍</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="petals">🌹 🤍 🍊 ✨ 🌹 🤍 🍊 ✨</div>
+
+<section id="home" class="screen active">
+    <div class="rose">🌹</div>
+    <h1>Hey You... 👀</h1>
+    <p>Ek chhoti si cheez hai...<br>sirf tumhare liye 🤍</p>
+    <button onclick="show('funny')">Open it 🌸</button>
+</section>
+
+<section id="funny" class="screen">
+    <h2>Relationship Department 😂</h2>
+
+    <div class="card">
+        <p id="joke">Hum dono ka communication: 10% baat, 90% “kuch nahi” 😭😂</p>
+    </div>
+
+    <button onclick="joke()">Ek aur 😂</button>
+    <button onclick="show('shayari')">Aage dekho 👀</button>
+</section>
+
+<section id="shayari" class="screen">
+    <div class="rose">🤍🌹🤍</div>
+    <h2>Ek baat dil se...</h2>
+
+    <div class="shayari">
+        <p id="shayariText">
+            YAHAN APNI SHAYARI PASTE KARNI HAI 🌸
+        </p>
+    </div>
+
+    <button onclick="show('ending')">Bas ek aur 🤍</button>
+</section>
+
+<section id="ending" class="screen">
+    <div class="big">🌹 🤍 🍊 🤍 🌹</div>
+
+    <h1>Bas itna sa kehna tha... 🫶</h1>
+
+    <p>
+        Kuch log life mein bas aate nahi...<br>
+        thoda sa ghar bana lete hain. 🤍
+    </p>
+
+    <h2>Tu unhi mein se hai. 🥹</h2>
+
+    <div class="signature">— Tumhara 🫶</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
