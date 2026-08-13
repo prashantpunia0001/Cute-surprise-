@@ -1,31 +1,53 @@
 const jokes = [
     "Humari chats ka 10% conversation aur 90% “kuch nahi” hota hai. 😂",
+
     "Relationship ka golden rule: “Main gussa nahi hoon” ka matlab usually… kuch toh gadbad hai. 😭😂",
+
     "Tum: Bas 5 minute baat karungi. Also tum: 2 ghante later 👀😂",
+
     "Hum dono ek dusre ko irritate bhi karte hain aur phir khud hi hasne lagte hain. 😂❤️",
+
     "Tumhara gussa aur meri manana ki skill… dono ka competition chal raha hai. 😭",
+
     "Relationship status: ek dusre ko tang karo, phir ek dusre ke bina bhi nahi rehna. 🤝😂"
 ];
 
 let jokeIndex = 0;
 
+
+/* =========================
+   SCREEN NAVIGATION
+========================= */
+
 function showScreen(id) {
-    document.querySelectorAll(".screen").forEach(screen => {
+
+    const screens = document.querySelectorAll(".screen");
+
+    screens.forEach(screen => {
         screen.classList.remove("active");
     });
 
-    const next = document.getElementById(id);
+    const nextScreen = document.getElementById(id);
 
-    if (next) {
-        next.classList.add("active");
+    if (nextScreen) {
+
+        nextScreen.classList.add("active");
+
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+
     }
 }
 
+
+/* =========================
+   NEXT JOKE
+========================= */
+
 function nextJoke() {
+
     jokeIndex++;
 
     if (jokeIndex >= jokes.length) {
@@ -34,42 +56,78 @@ function nextJoke() {
 
     const jokeBox = document.getElementById("joke");
 
+    if (!jokeBox) return;
+
     jokeBox.style.opacity = "0";
 
     setTimeout(() => {
+
         jokeBox.textContent = jokes[jokeIndex];
+
         jokeBox.style.opacity = "1";
+
     }, 200);
 }
 
 
-/* Cute floating hearts */
+/* =========================
+   CUTE FLOATING ELEMENTS
+========================= */
 
-function createHeart() {
-    const heart = document.createElement("div");
+function createFloatingElement() {
 
-    heart.innerHTML = ["🤍", "✨", "🌸", "🍊"][Math.floor(Math.random() * 4)];
+    const element = document.createElement("div");
 
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-30px";
-    heart.style.fontSize = (15 + Math.random() * 15) + "px";
-    heart.style.opacity = "0.7";
-    heart.style.pointerEvents = "none";
-    heart.style.zIndex = "10";
-    heart.style.transition = "transform 5s linear, opacity 5s linear";
+    const symbols = [
+        "🤍",
+        "✨",
+        "🌸",
+        "🍊",
+        "🌹"
+    ];
 
-    document.body.appendChild(heart);
+    element.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    element.style.position = "fixed";
+    element.style.left = Math.random() * 100 + "vw";
+    element.style.bottom = "-30px";
+
+    element.style.fontSize =
+        (15 + Math.random() * 15) + "px";
+
+    element.style.opacity = "0.7";
+
+    element.style.pointerEvents = "none";
+
+    element.style.zIndex = "10";
+
+    element.style.transition =
+        "transform 5s linear, opacity 5s linear";
+
+    document.body.appendChild(element);
+
 
     setTimeout(() => {
-        heart.style.transform =
+
+        element.style.transform =
             `translateY(-110vh) rotate(${Math.random() * 360}deg)`;
-        heart.style.opacity = "0";
+
+        element.style.opacity = "0";
+
     }, 50);
 
+
     setTimeout(() => {
-        heart.remove();
+
+        element.remove();
+
     }, 5200);
 }
 
-setInterval(createHeart, 900);
+
+/* =========================
+   START FLOATING EFFECT
+========================= */
+
+setInterval(createFloatingElement, 900);
